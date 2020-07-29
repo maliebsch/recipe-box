@@ -1,13 +1,205 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Roboto';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("images/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+input,
+textarea {
+  padding: 8px;
+  margin-bottom: 10px;
+  font-family: 'Roboto';
+  border-radius: 4px;
+  border: none;
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.75);
+  box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.75);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000;
+  opacity: 0.1;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.App {
+  margin: 50px 0;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  z-index: 10;
+  width: 100%;
+}
+
+.container-left,
+.container-right {
+  width: 100%;
+  text-align: center;
+  padding: 0 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.directions,
+.ingredients {
+  margin-bottom: 10px;
+}
+
+.recipe-form-container,
+.recipe-list-container,
+.full-recipe {
+  background-color: #FFAE42;
+  padding: 30px 20px;
+  max-width: 80%;
+  width: 100%;
+  color: #fff;
+  border-radius: 4px;
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.75);
+  box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.75);
+  margin: 25px 0;
+}
+
+.container-right {
+  margin-top: 35px;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.formControl {
+  width: 100%
+}
+
+.recipes {
+  margin-bottom: 30px;
+}
+
+.modal {
+  background-color: #fff;
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.recipesList {
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  padding: 10px;
+  background-color: #fff;
+  color: #FFAE42;
+  font-weight: 700;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.75);
+  box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.75);
+}
+
+button:hover {
+  background-color: #FFAE42;
+  color: #fff;
+  transition: 0.2s linear;
+
+
+}
+
+.heading {
+  background-color: #fff;
+  padding: 5px;
+  margin: 0 0 10px 0;
+  color: #FFAE42;
+  border-radius: 4px;
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.75);
+  box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.75);
+}
+
+.sub-heading {
+  border-bottom: 2px solid #FFAE42;
+}
+
+.list-item {
+  border: 2px solid #fff;
+  padding: 5px;
+  margin: 10px 0;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.75);
+  box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.75);
+}
+
+@media only screen and (max-width: 1024px) {
+
+  .App {
+    margin: 30px 0;
+    flex-direction: column;
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+  .container-left,
+  .container-right {
+    width: 80%;
+    margin: auto;
+  }
+
+  .container-right {
+    margin-top: 0 !important;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 25px;
+    margin: 20px 0 30px 0;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3,
+  h4 {
+    font-size: 16px;
+  }
+
+  .recipe-form-container,
+  .recipe-list-container,
+  .full-recipe {
+    margin: 0 0 20px 0;
+    padding: 20px;
+    max-width: unset;
+  }
+}
+
+@media only screen and (max-width: 1320px) and (min-width: 1024px) {
+  .App {
+    justify-content: space-evenly !important;
+  }
 }
